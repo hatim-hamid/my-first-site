@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="main.css">
+  <style>
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+  <title>My OBS WebCam Stream</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to OBS My WebCam Video Stream</h1>
+  </div>
+
+  <div class="booth">
+    <video id="video" width="640" height="480" autoplay></video>
+  </div>
+
+  <script>
+    (function() {
+      var video = document.getElementById('video');
+      var constraints = { video: true, Audio: true };
+
+      navigator.mediaDevices.getUserMedia(constraints)
+        .then(function(stream) {
+          video.srcObject = stream;
+          video.play();
+        })
+        .catch(function(error) {
+          console.error('Error accessing user media:', error);
+        });
+    })();
+  </script>
+</body>
+</html>
+
+

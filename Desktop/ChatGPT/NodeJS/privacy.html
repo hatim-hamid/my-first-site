@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Privacy Policy</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS for the page */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-4">Privacy Policy</h1>
+    <p>Your privacy is important to us. It is [Your Company Name]'s policy to respect your privacy regarding any information we may collect from you across our website, [Your Website URL], and other sites we own and operate.</p>
+    
+    <h3>Information We Collect</h3>
+    <p>We only collect information about you if we have a reason to do so—for example, to provide our services, to communicate with you, or to improve our services. We collect this information from three sources: if and when you provide information to us, automatically through operating our services, and from outside sources. Let's go over the information that we collect.</p>
+    
+    <h3>How We Use Your Information</h3>
+    <p>We use the information we collect in various ways, including to:</p>
+    <ul>
+      <li>Provide, operate, and maintain our website</li>
+      <li>Improve, personalize, and expand our website</li>
+      <li>Understand and analyze how you use our website</li>
+      <li>Develop new products, services, features, and functionality</li>
+      <li>Communicate with you, either directly or through one of our partners</li>
+      <li>Send you emails</li>
+      <li>Find and prevent fraud</li>
+    </ul>
+    
+    <h3>Third-Party Disclosure</h3>
+    <p>We do not sell, trade, or otherwise transfer to outside parties your personally identifiable information unless we provide users with advance notice. This does not include website hosting partners and other parties who assist us in operating our website, conducting our business, or serving our users, so long as those parties agree to keep this information confidential.</p>
+    
+    <h3>Security</h3>
+    <p>We take reasonable precautions to protect your information. We also protect your information offline. Only employees who need the information to perform a specific job are granted access to personally identifiable information.</p>
+    
+    <h3>Updates to This Policy</h3>
+    <p>We may update our privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
+    
+    <p class="text-muted">Last updated: 2023</p>
+  </div>
+
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch('/footer')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+      });
+  </script>
+  
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

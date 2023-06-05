@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My YouTube Videos</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    .play-btn {
+      cursor: pointer;
+    }
+
+    .video-overlay {
+      position: relative;
+      width: 320px;
+      height: 240px;
+      overflow: hidden;
+    }
+
+    .video-overlay video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .video-overlay:hover:after {
+      content: attr(data-description);
+      position: absolute;
+      top: 25%;
+      left: 25%;
+      width: 50%;
+      height: 50%;
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      z-index: 1;
+    }
+
+    .share-column {
+      display: flex;
+      align-items: center;
+    }
+
+    .share-btn {
+      cursor: pointer;
+    }
+
+    .download-btn {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>My Video List</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>File Name</th>
+          <th>Duration</th>
+          <th></th>
+          <th>Share</th>
+          <th>Download</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Video 1 - Cartoon</td>
+          <td>2:30</td>
+          <td>
+            <div class="video-overlay" data-description="Cartoon video!">
+              <video src="http://localhost:3000/video/1" controls></video>
+            </div>
+          </td>
+          <td>
+            <div class="share-column">
+              <span class="share-btn" data-video-url="http://localhost:3000/video/1">Share Video</span>
+            </div>
+          </td>
+          <td>
+            <div class="share-column">
+              <span class="download-btn" data-video-url="http://localhost:3000/video/1">Download Now</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Video 2 - Quran</td>
+          <td>3:45</td>
+          <td>
+            <div class="video-overlay" data-description="Quran video!">
+              <video src="http://localhost:3000/video/2" controls></video>
+            </div>
+          </td>
+          <td>
+            <div class="share-column">
+              <span class="share-btn" data-video-url="http://localhost:3000/video/2">Share Video</span>
+            </div>
+          </td>
+          <td>
+            <div class="share-column">
+              <span class="download-btn" data-video-url="http://localhost:3000/video/2">Download Now</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Video 3 - Azan</td>
+          <td>1:55</td>
+          <td>
+            <div class="video-overlay" data-description="Azan video!">
+              <video src="http://localhost:3000/video/3" controls></video>
+            </div>
+          </td>
+          <td>
+            <div class="share-column">
+              <span class="share-btn" data-video-url="http://localhost:3000/video/3">Share Video</span>
+            </div>
+          </td>
+          <td>
+            <div class="share-column">
+              <span class="download-btn" data-video-url="http://localhost:3000/video/3">Download Now</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>Video 4 - Nasheed</td>
+          <td>8:51</td>
+          <td>
+            <div class="video-overlay" data-description="Nasheed video!">
+              <video src="http://localhost:3000/video/4" controls></video>
+            </div>
+          </td>
+          <td>
+            <div class="share-column">
+              <span class="share-btn" data-video-url="http://localhost:3000/video/4">Share Video</span>
+            </div>
+          </td>
+          <td>
+            <div class="share-column">
+              <span class="download-btn" data-video-url="http://localhost:3000/video/4">Download Now</span>
+            </div>
+          </td>
+        </tr>
+        <!-- Add more rows for additional videos -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.video-overlay video').on('play', function() {
+        pauseOtherVideos(this);
+      });
+    
+      function pauseOtherVideos(currentVideo) {
+        $('.video-overlay video').each(function() {
+          if (this !== currentVideo) {
+            this.pause();
+          }
+        });
+      }
+    
+      $('.share-btn').on('click', function(e) {
+        e.preventDefault();
+    
+        var videoUrl = $(this).data('video-url');
+        var videoId = videoUrl.substring(videoUrl.lastIndexOf('/') + 1);
+        var formattedVideoUrl = 'http://localhost:3000/video/video' + videoId + '.mp4';
+    
+        copyToClipboard(formattedVideoUrl);
+        alert('Video URL copied to clipboard!');
+      });
+    
+      $('.download-btn').on('click', function(e) {
+        e.preventDefault();
+    
+        var videoUrl = $(this).data('video-url');
+        var videoId = videoUrl.substring(videoUrl.lastIndexOf('/') + 1);
+        var formattedVideoUrl = 'http://localhost:3000/video/' + videoId;
+    
+        openDownloadLink(formattedVideoUrl, 'video' + videoId + '.mp4');
+      });
+    
+      function copyToClipboard(text) {
+        var dummyElement = document.createElement('textarea');
+        dummyElement.value = text;
+        dummyElement.setAttribute('readonly', '');
+        dummyElement.style.position = 'absolute';
+        dummyElement.style.left = '-9999px';
+        document.body.appendChild(dummyElement);
+        dummyElement.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummyElement);
+      }
+    
+      function openDownloadLink(url, filename) {
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        a.target = '_blank';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

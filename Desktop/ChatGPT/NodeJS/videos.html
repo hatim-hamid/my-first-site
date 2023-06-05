@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Video List</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    .play-btn {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>My Video List</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>File Name</th>
+          <th>Duration</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Video 1 - Cartoon</td>
+          <td>2:30</td>
+          <td><span class="play-btn" data-video-id="1">Play</span></td>
+        </tr>
+        <tr>
+          <td>Video 2 - Quran</td>
+          <td>3:45</td>
+          <td><span class="play-btn" data-video-id="2">Play</span></td>
+        </tr>
+        <tr>
+          <td>Video 3 - Azan</td>
+          <td>1:55</td>
+          <td><span class="play-btn" data-video-id="3">Play</span></td>
+        </tr>
+        <tr>
+          <td>Video 4 - Nasheed</td>
+          <td>8:51</td>
+          <td><span class="play-btn" data-video-id="4">Play</span></td>
+        </tr>
+        <!-- Add more rows for additional videos -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.play-btn').on('click', function() {
+        var videoId = $(this).data('video-id');
+        var url = 'http://localhost:3000/video/' + videoId;
+        // Perform the desired action with the URL (e.g., send an HTTP request)
+        console.log(url); // Print the URL for testing
+        // Redirect to the video URL
+        window.location.href = url;
+      });
+    });
+  </script>
+</body>
+</html>
+
+

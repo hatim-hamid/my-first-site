@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Priority AI Solutions</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">About Me</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#overview">Overview</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#skills">Skills</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#experience">Experience</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contact">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    
+        <section id="overview" class="mt-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>About Me</h2>
+                    <p>My name is Hatim A. Hamid, and I am an expert-level AI & ChatGPT Prompt Engineer. I am the founder
+                        of Priority AI Solutions, a company dedicated to providing advanced AI solutions for businesses.
+                        With a strong focus on artificial intelligence and natural language processing, I specialize in
+                        developing and fine-tuning state-of-the-art language models like ChatGPT. My passion lies in
+                        creating highly engaging and interactive conversational experiences powered by AI.</p>
+                </div>
+            </div>
+        </section>
+    
+        <section id="skills" class="mt-5">
+            <h2>Skills</h2>
+            <ul class="list-group">
+                <li class="list-group-item">Natural Language Processing (NLP)</li>
+                <li class="list-group-item">Artificial Intelligence (AI)</li>
+                <li class="list-group-item">Conversational AI</li>
+                <li class="list-group-item">Machine Learning (ML)</li>
+                <li class="list-group-item">Python Programming</li>
+                <li class="list-group-item">Chatbot Development</li>
+            </ul>
+        </section>
+    
+        <section id="experience" class="mt-5">
+            <h2>Experience</h2>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h4>Senior AI Engineer</h4>
+                    <h5>ABC Company</h5>
+                    <p>June 2018 - Present</p>
+                </li>
+                <li class="list-group-item">
+                    <h4>AI Engineer</h4>
+                    <h5>XYZ Corporation</h5>
+                    <p>January 2015 - May 2018</p>
+                </li>
+            </ul>
+        </section>
+    
+        <section id="contact" class="mt-5">
+            <h2>Contact</h2>
+            <p>Feel free to reach out to me if you have any questions or would like to discuss potential collaborations.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Email</h4>
+                    <p><a href="mailto:youremail@example.com">youremail@example.com</a></p>
+                </div>
+                <div class="col-md-6">
+                    <h4>Phone</h4>
+                    <p>+1 123 456 7890</p>
+                </div>
+            </div>
+        </section>
+    
+        <div id="footer-placeholder"></div>
+        <script>
+          fetch('/footer')
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById('footer-placeholder').innerHTML = data;
+            });
+        </script>
+    </div>
+</body>
+</html>    
